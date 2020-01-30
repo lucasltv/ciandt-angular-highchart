@@ -1,3 +1,3 @@
-# angularjs-ciandt-trainning
+# ciandt-angular-highchart
 
 Training purpose only
