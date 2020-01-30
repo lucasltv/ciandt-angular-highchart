@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="highCharts">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="libs/bootstrap/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>POC Gráficos</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/highcharts/4.0.0/highcharts.js"></script>
+    <script src="libs/bootstrap/bootstrap.js"></script>
+    <script src="js/navbar.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar"></nav>
+
+    <div ng-controller="chart-ctlr">
+        <div class="jumbotron">
+            <h4 ng-bind="title"></h4>
+        </div>
+
+        <div class="my-charts" id="container"></div>
+    </div>
+
+
+    <script defer>
+        function chartController($scope) {
+            $scope.title = "Gráfico Negativo (Linhas)";
+        }
+
+        angular.module('highCharts', []);
+        angular.module('highCharts').controller('chart-ctlr', chartController);
+    </script>
+
+    <script>
+        $(function () {
+            var chart = $('#container').highcharts({
+                chart: {
+                    type: 'area'
+                },
+                title: {
+                    text: 'Area chart with negative values'
+                },
+                xAxis: {
+                    categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
+                },
+                credits: {
+                    enabled: false
+                },
+                series: [{
+                    name: 'John',
+                    data: [5, 3, 4, 7, 2]
+                }, {
+                    name: 'Jane',
+                    data: [2, -2, -3, 2, 1]
+                }, {
+                    name: 'Joe',
+                    data: [3, 4, 4, -2, 5]
+                }]
+            });
+        });
+    </script>
+</body>
+
+</html>
