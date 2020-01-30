@@ -1,2 +1,2 @@
-# angularjs-ciandt-trainning
-Team trainning
+# CI&T trainning/POC for angularJS with HighCharts
+
