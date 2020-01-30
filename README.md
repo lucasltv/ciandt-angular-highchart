@@ -1,2 +1,3 @@
 # angularjs-ciandt-trainning
-Team trainning
+
+Training purpose only
