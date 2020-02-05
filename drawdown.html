@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="highCharts">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="libs/bootstrap/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>POC Gráficos</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/highcharts/4.0.0/highcharts.js"></script>
+    <script src="libs/bootstrap/bootstrap.js"></script>
+    <script src="js/navbar.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar"></nav>
+
+    <div ng-controller="chart-ctlr">
+        <div class="jumbotron">
+            <h4 ng-bind="title"></h4>
+        </div>
+
+        <div class="my-charts" id="container"></div>
+    </div>
+
+
+    <script defer>
+        function chartController($scope) {
+            $scope.title = "Gráfico Pizza 01";
+        }
+
+        angular.module('highCharts', []);
+        angular.module('highCharts').controller('chart-ctlr', chartController);
+    </script>
+
+    <script>
+        $(function () {
+
+            $.get('https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/samples/data/usdeur.json')
+
+                .done(data => {
+                    $('#container').highcharts(
+                        {
+                            title: {
+                                text: ''
+                            },
+
+                            xAxis: {
+                                type: 'datetime',
+                            },
+                            yAxis: {
+                                title: {
+                                    text: ''
+                                }
+                            },
+                            legend: {
+                                enabled: false
+                            },
+                            series: [{
+                                type: 'area',
+                                name: 'Evolução',
+                                data: parseData(data)
+                            }]
+                        }
+                    );
+                })
+        });
+
+        function parseData(data) {
+            data.forEach(element => {
+                element[1] = element[1] * -1;
+            });
+            return data;
+        }
+    </script>
+</body>
+
+</html>
