@@ -19,6 +19,7 @@ $(document).ready(() => {
                     <a class="dropdown-item" href="barras-horizontal.html">Barras Horizontal</a>
                     <a class="dropdown-item" href="destaques-positivos-e-negativos.html">Barras Horizontal (-)</a>
                     <a class="dropdown-item" href="drawdown.html">Drawdown</a>
+                    <a class="dropdown-item" href="combinado.html">Combinado</a>
                 </div>
             </li>
         </ul>
