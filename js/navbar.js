@@ -18,6 +18,7 @@ $(document).ready(() => {
                     <a class="dropdown-item" href="grafico-negativo-linhas.html">Negativo Linhas</a>
                     <a class="dropdown-item" href="barras-horizontal.html">Barras Horizontal</a>
                     <a class="dropdown-item" href="destaques-positivos-e-negativos.html">Barras Horizontal (-)</a>
+                    <a class="dropdown-item" href="drawdown.html">Drawdown</a>
                 </div>
             </li>
         </ul>
